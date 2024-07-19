@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+
+.chatbox {
+  position: fixed;
+  bottom: 160px; /* Moved up by 150px */
+  right: 10px;
+  width: 300px;
+  height: 550px;
+  display: none;
+  flex-direction: column;
+  background: lightyellow;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
+
+.chatbox__header {
+  padding: 10px;
+  background: purple;
+  border-bottom: 1px solid #444;
+  z-index: 30;
+  color: white;
+}
+
+.chatbox__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background: rgb(1, 105, 1);
+  z-index: 25;
+  color: white;
+}
+
+.chatbox__footer {
+  padding: 10px;
+  background: #5e015e;
+  border-top: 1px solid #444;
+  z-index: 30;
+  color: white;
+}
+
+.chatbox__button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #0876ec;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mapbox__button {
+  position: fixed;
+  bottom: 70px;
+  right: 10px;
+  background: #0876ec;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.send__button {
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.message {
+  background-color: #444;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: #f0f0f0;
+}
+
+.section {
+  background: rgba(50, 50, 50, 0.9);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 15px solid #8b4513;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+}
+
+.chatbox__footer textarea {
+  width: calc(100% - 90px);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  resize: none;
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.map-tab {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 400px;
+  height: 600px;
+  background: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  overflow: hidden;
+  display: none;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.arrows {
+  position: absolute;
+  z-index: 30;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.arrow-up {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow-down {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arrow-left {
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.arrow-right {
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Rejoice<br>Estate<br>Consultant</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#about us" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About Us</a> 
+    <a href="#FOS" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">FOS: Fediverse On Steriods</a> 
+    <a href="#the team" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">The Team</a> 
+    <a href="#business inquiry" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Business Inquiry</a> 
+    <a href="#career" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Career</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Rejoice Estate Consultants</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-xxxlarge w3-text-red"><b>About Us</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  
+  <!-- Photo grid (modal) -->
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <p>At Rejoice Estate Consultants, we're a team of passionate professionals with a vision for the future. While we've established ourselves in Mumbai's Western Suburbs through successful real estate investments and consultations, we believe there's a smarter way to navigate this dynamic market.</p>
+      <img src="https://www.w3schools.com/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
+      <img src="https://www.w3schools.com/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+    </div>
+    
+    <div class="w3-half">
+      <p>Our core investment model has delivered strong yields, but we recognize its limitations. Growth hinges heavily on capital, especially in a city like Mumbai where property prices are a significant hurdle. This inspired us to explore a more scalable path.<br><br></p>
+      <img src="https://www.w3schools.com/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
+      <img src="https://www.w3schools.com/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
+    </div>
+    
+	<div class="w3-half">
+      <p>On the other hand, real estate services hold immense potential for growth, yet the industry remains largely unorganized and reliant on manual processes. This is precisely where we aim to disrupt the status quo.</p>
+      <img src="https://www.w3schools.com/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
+    </div>
+    
+    <div class="w3-half">
+     <p>We're pioneering the future of real estate with cutting-edge AI and Large Language Model (LLM) solutions. By integrating automation and streamlining workflows, we're committed to transforming the way business is done in Mumbai's real estate landscape.</p>
+      <img src="https://www.w3schools.com/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
+     </div>
+     
+     <div class="w3-container">
+      <p><br>Stay tuned as we pave the way for a more efficient, transparent, and data-driven real estate experience for all!</p>
+     </div>  
+    
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- FOS -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>FOS: Fediverse On Steroids</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Real Estate Reimagined with FOS i.e. Fediverse on Steroids!</p>
+    <p>More than 80% of business in India are unorganised and rely heavily on manual processes especially in the real estate sector.</p>
+    <p>Goodbye, Industrial Era! Leave behind the limitations of centralized systems. Embrace the collaborative power of community-driven business and tech solutions built for the community era !</p>
+  </div>
+  <div>
+  	<h2 class="w3-xxlarge w3-text-red"><b>Introducing FOS - Fediverse on steroids :</b></h2>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <h3 class="w3-xlarge w3-text-red"><b>Decentralized Power:</b></h3>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p> Decentralized & Serverless: Experience a real estate ecosystem independent of centralized control, built on a serverless infrastructure for ultimate scalability. Your data, your rules!</p>
+    <p> Blockchain-powered Security: Ensure the highest level of data security and transparency for your business through blockchain technology. </p> 
+    <h3 class="w3-xlarge w3-text-red"><b>Collaborative Knowledge:</b></h3>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p> Community-driven Knowledge Base: Tap into a wealth of real estate knowledge built and maintained by the community itself. Learn from theSLM/LLM by the Community: Inspired by Project Petals (https://github.com/bigscience-workshop/petals), FOS empowers the community to create and manage its own AI assistants (SLM/LLM) for a truly collaborative experience. </p> 
+    <h3 class="w3-xlarge w3-text-red"><b>Seamless Workflow:</b></h3>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p> Seamless Integration: Connect your existing social media and messaging platforms with ease. No more juggling multiple platforms!</p>
+    <p> Advanced Search & Filtering: Find exactly what you're looking for with powerful search functionalities and customizable filters integrated with AI. </p> 
+    <h3 class="w3-xlarge w3-text-red"><b>Empowering Users:</b></h3>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p> Real-time Collaboration: Connect and collaborate with other users in real-time for a more efficient and streamlined workflow.</p>
+    <p> Data Ownership & Control: Maintain complete control over your data within the secure decentralized network. Your data, your choice!
+ </p> 
+  </div>
+  
+  <!-- The Team -->
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team2.jpg" alt="prashant" style="width:100%">
+        <div class="w3-container">
+          <h3>Prashant Zende</h3>
+          <p class="w3-opacity">Founder</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team1.jpg" alt="kamal" style="width:100%">
+        <div class="w3-container">
+          <h3>Kamal Raj</h3>
+          <p class="w3-opacity">Tech Co-Founder</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team3.jpg" alt="jeremy" style="width:100%">
+        <div class="w3-container">
+          <h3>Jeremy Shows</h3>
+          <p class="w3-opacity">Tech Co-Founder</p>
+        </div>
+      </div>
+    </div>
+  <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="https://drive.google.com/file/d/1wuudj2n-Vy3Q_zK7cr2XiYXYLeBr1bIL/view?usp=drive_link" alt="tejas" style="width:100%">
+        <div class="w3-container">
+          <h3>Tejas Mali</h3>
+          <p class="w3-opacity">Technical Assistant</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team1.jpg" alt="moksh" style="width:100%">
+        <div class="w3-container">
+          <h3>Moksh Malik</h3>
+          <p class="w3-opacity">Backend Developer</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team3.jpg" alt="paul" style="width:100%">
+        <div class="w3-container">
+          <h3>Subhamoy Paul</h3>
+          <p class="w3-opacity">Database Expert</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Business Inquiry -->
+  <div class="w3-container" id="business inquiry" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Business Inquiry</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>At Rejoice Estate Consultants, we are dedicated to transforming the real estate experience through innovative solutions and unparalleled customer service. Whether you're looking to buy, sell, lease, or invest in properties in Mumbai's Western Suburbs, our expert team is here to assist you every step of the way. For personalized assistance, detailed property information, or to discuss potential business collaborations, please fill out the inquiry form below. One of our knowledgeable consultants will reach out to you promptly to address your needs and explore how we can help you achieve your real estate goals. We look forward to partnering with you in making informed and confident real estate decisions.</p>
+  </div>
+
+  <!-- Career -->
+  <div class="w3-container" id="career" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Career</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Are you passionate about real estate and driven by innovation? Join the dynamic team at Rejoice Estate Consultants and be a part of revolutionizing the real estate industry in Mumbai's Western Suburbs. We are always on the lookout for talented individuals who are eager to make a difference, embrace challenges, and contribute to our mission of delivering exceptional real estate solutions. At Rejoice Estate Consultants, we offer a collaborative and supportive work environment, opportunities for professional growth, and the chance to work on exciting projects that leverage cutting-edge technology. If you are ready to take your career to new heights and be a part of a forward-thinking team, explore our current openings and apply today. Together, we can build a brighter future in real estate.</p>
+  </div>
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+    <form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+    </form>  
+  </div>
+
+  <div>
+    <p><br><br><br></p>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+
+<div class="chatbox">
+  <div class="chatbox__header">
+    <div class="chatbox__image--header">
+      <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+    </div>
+    <div class="chatbox__content--header">
+      <h4 class="chatbox__heading--header">Chat support</h4>
+      <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+    </div>
+  </div>
+  <div class="chatbox__messages">
+    <!-- Chat messages will be displayed here -->
+  </div>
+  <div class="chatbox__footer">
+    <textarea placeholder="Type a message..."></textarea>
+    <button class="send__button">Send</button>
+  </div>
+</div>
+
+<div class="chatbox__button">
+  <p>chat</p>
+</div>
+
+<div class="map-tab">
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609994733!2d72.74110074979444!3d19.08219783947042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63dbfdd3a6f%3A0x7e36c9350f7cc68!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1627304472348!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+  <div class="arrows arrow-up">▲</div>
+  <div class="arrows arrow-down">▼</div>
+  <div class="arrows arrow-left">◄</div>
+  <div class="arrows arrow-right">►</div>
+</div>
+
+<div class="mapbox__button">
+  <p>map</p>
+</div>
+
+<script>
+  const chatboxButton = document.querySelector('.chatbox__button');
+  const chatbox = document.querySelector('.chatbox');
+  const mapboxButton = document.querySelector('.mapbox__button');
+  const mapTab = document.querySelector('.map-tab');
+  const map = document.querySelector('.map');
+
+  chatboxButton.addEventListener('click', () => {
+    const isVisible = chatbox.style.display === 'flex';
+    chatbox.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible) {
+      mapTab.style.display = 'none';
+    }
+  });
+
+  mapboxButton.addEventListener('click', () => {
+    const isVisible = mapTab.style.display === 'block';
+    mapTab.style.display = isVisible ? 'none' : 'block';
+    if (!isVisible) {
+      chatbox.style.display = 'none';
+    }
+  });
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function () {
+      document.querySelectorAll('.section').forEach(section => section.style.display = 'none');
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.style.display = 'block';
+    });
+  });
+
+  document.querySelector('.arrow-up').addEventListener('click', () => {
+    map.contentWindow.postMessage('panUp', '*');
+  });
+
+  document.querySelector('.arrow-down').addEventListener('click', () => {
+    map.contentWindow.postMessage('panDown', '*');
+  });
+
+  document.querySelector('.arrow-left').addEventListener('click', () => {
+    map.contentWindow.postMessage('panLeft', '*');
+  });
+
+  document.querySelector('.arrow-right').addEventListener('click', () => {
+    map.contentWindow.postMessage('panRight', '*');
+  });
+
+
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
